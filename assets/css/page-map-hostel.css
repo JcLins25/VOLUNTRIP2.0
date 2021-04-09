@@ -1,0 +1,142 @@
+body {
+    overflow: auto;
+
+    background-image: url("../img/img2/logo/fundo.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 90%;
+    background-attachment: fixed;
+}
+
+
+body #container {
+    font-weight: 500;
+    color: rgb(8, 8, 8);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+}
+
+.top-bar-container {
+    margin: 0rem;
+}
+
+.redes-sociais {
+    position: absolute;
+    right: 0;
+}
+
+.redes-sociais ul li{
+    display: flex;
+    float: right;
+    margin: auto;
+    padding: 10px;
+    
+}
+
+.redes-sociais img {
+    width: 2rem;
+}
+
+.logotipo {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 120px;
+    padding: 10px;
+    height: auto;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+
+    margin: auto;
+    float: left;
+
+    width: 20%;
+  }
+
+  .search {
+    height: 10rem;
+
+    margin: 0.5rem 1.6rem;
+
+    margin-top: 27rem;
+
+    border-radius: .8rem;
+    margin-right: 1.6rem;
+
+    font: 200 1.2rem Archivo;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    transition: background 0.2s;
+
+    color: black ;
+}
+
+/* map */
+.map-container {
+  margin-top: 6.4rem;
+  background: #e6f7fb;
+  border: 1px solid #DDE3F0;
+  border-radius: 2rem;
+}
+
+#mapid {
+  width: 80%;
+  height: 37rem;
+
+  margin-top: -40px;
+}
+
+.map-container footer {
+  padding: 2rem 0;
+
+  text-align: center;
+}
+
+.map-container footer a {
+  color: #0089a5;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.map-container .leaflet-container {
+  border-bottom: 1px solid #dde3f0;
+  border-radius: 2rem;
+}
+
+.Frase p {
+  margin-top: 4rem;
+  justify-content: center;
+
+  width: 2rem;
+  height: 8rem;
+
+  border-radius: .8rem;
+  margin-right: 1.6rem;
+
+  font: 600 1.8rem Archivo;
+  
+  color: black;
+
+}
+
+.Frase {
+
+  height: 4rem;
+
+  font: 600 1.8rem Archivo;
+  
+  color: black
+
+}

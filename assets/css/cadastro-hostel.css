@@ -1,0 +1,456 @@
+body {
+    overflow: auto;
+    
+  }
+  
+  #page-hostel {
+    background-image: url('https://i0.wp.com/agentenoturismo.com.br/wp-content/uploads/2015/11/traveler.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 90%;
+    background-attachment: fixed;
+    /* opacity: 1; */
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    z-index: -10;
+  }
+  
+  body #container {
+    font-weight: 500;
+    color: rgb(8, 8, 8);
+    height: 115px;
+    width: 100%;
+    position: relative;
+    
+  }
+  
+  .top-bar-container {
+    margin: 0rem;
+  }
+  
+  .redes-sociais {
+    position: absolute;
+    right: 0;
+  }
+  
+  .redes-sociais ul li{
+    display: flex;
+    float: right;
+    margin: auto;
+    padding: 10px;
+    
+  }
+  
+  .redes-sociais img {
+    width: 2rem;
+  }
+  
+  .logotipo {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 120px;
+    padding: 10px;
+    height: auto;
+  }
+  
+  .header-content{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+  
+    margin: auto;
+  }
+  
+  .row {
+    display: flex;
+    position: relative;
+    justify-content: space-around; 
+  }
+  
+  .row-sapce {
+    display: flex;
+    position: relative;
+    justify-content: center;
+  
+  
+  }
+  
+  .page-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+  
+  input, textarea, #label-hostel {
+    outline: none;
+    margin: 0;
+    border-style: solid 1px;
+    border-color: gray;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  
+  .input--style-4 #label-hostel {
+    line-height: 50px;
+    background: #241f1f;
+    -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: rgb(235, 235, 235);
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  
+  .input--style-4::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #666;
+  }
+  
+  .p-t-30 #label-hostel {
+    padding-top: 30px;
+  }
+  
+  .radio-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: rgb(17, 17, 17);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 1.6rem;
+  }
+  
+  .buttons-container a { 
+    width: 8rem;
+    height: 3rem;
+  
+    border-radius: .8rem;
+    margin-right: 1.6rem;
+  
+    font: 200 1.2rem Archivo;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    text-decoration: none;
+  
+    transition: background 0.2s;
+  
+    color: black ;
+  }
+  
+  
+  .buttons-container a.Voltar {
+    background: rgb(243, 159, 138);
+  }
+  
+  .buttons-container a.Voltar:hover {
+    background: rgb(238, 62, 49);
+  }
+  
+  .buttons-container a.Salvar {
+    background:  rgb(90, 73, 240);
+    margin-right: 0;
+  }
+  
+  .buttons-container a.Salvar:hover {
+    background: rgb(119, 238, 69);
+  }
+  
+  input[type="file"] {
+   display: block;
+  }
+  
+  .imageThumb {
+    max-height: 75px;
+    border: 2px solid;
+    padding: 1px;
+    cursor: pointer;
+  }
+  .pip {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+  }
+  .remove {
+    display: block;
+    background: #444;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
+  .remove:hover {
+    background: white;
+    color: black;
+  }
+  
+  #files-preview {
+    min-height: 100px;
+    overflow: scroll;
+  }
+  
+  .card {
+    opacity: 0.9; 
+  }
+  
+  .page-header {
+    height: 115px;
+  }
+ /* Desktop Navigation  */
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar > ul > li {
+  white-space: nowrap;
+  padding: 10px 0 10px 24px;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 4px;
+  white-space: nowrap;
+  transition: 0.3s;
+  letter-spacing: 0.4px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.navbar a i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar > ul > li > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #2dc997;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navbar a:hover, .navbar .active, .navbar li:hover > a {
+  color: #fff;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 24px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: none;
+  color: #666666;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+  color: #2dc997;
+}
+
+.navbar .dropdown:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
+}
+Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(77, 77, 77, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile > ul > li {
+  padding: 0;
+}
+
+.navbar-mobile a:hover:before, .navbar-mobile li:hover > a:before, .navbar-mobile .active:before {
+  visibility: hidden;
+}
+
+.navbar-mobile a {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #666666;
+}
+
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+  color: #2dc997;
+}
+
+.navbar-mobile .getstarted {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+  color: #2dc997;
+}
+
+.navbar-mobile .dropdown > .dropdown-active {
+  display: block;
+}

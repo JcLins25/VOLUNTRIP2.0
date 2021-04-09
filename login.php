@@ -28,8 +28,30 @@
   <link href="assets/css/style.css?v=1.0" rel="stylesheet"/>
   <link href="assets/css/style-login.css" rel="stylesheet"/>
 
+  <div id="container">
+	  <!-- Navbar Section -->
+    <div>
+                <header class="page-header">
+                <div class="container d-flex justify-content-between align-items-center">
+				<div id="logo">
+                <a href=""><img id="Logo-img" src="assets/img/img2/logo/Logo.png" alt=""/></a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!--<h1><a href="index.html">Regna</a></h1>-->
+                </div>
+
+            <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto" href="index.php"><img id="User" src= "assets/img/img2/logo/user.png" alt=""></a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+    </div>
+	<!-- End Navbar -->
+
   <!-- =======================================================
   * Template Name: Regna - v4.0.1
+
+
   * Template URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
@@ -38,43 +60,41 @@
 
 <body>
 
-<?php
-	require('../databse/db.php');
+ <?php
+	try {
+	require(__DIR__. '/database/db.php');
+	}
+	catch(Exception $e) {
+		
+	}
 	session_start();
 	// If form submitted, insert values into the database.
 	if (isset($_POST['username'])){
         // removes backslashes
  	$username = stripslashes($_REQUEST['username']);
-        //escapes special characters in a string
+	// escapes special characters in a string
  	$username = mysqli_real_escape_string($con,$username);
  	$password = stripslashes($_REQUEST['password']);
  	$password = mysqli_real_escape_string($con,$password);
- 	//Checking is user existing in the database or not
-        $query = "SELECT * FROM `Usuarios` WHERE email='$username'and senha='".md5($password)."'";
+ 	// Checking is user existing in the database or not
+        $query = "SELECT * FROM `Usuarios` WHERE email='$username'and senha='$password'";
  	$result = mysqli_query($con,$query) or die(mysqli_error(0));
 	$rows = mysqli_num_rows($result);
         if($rows==1){
-     $_SESSION['username'] = $username;
-            // Redirect user to index.php
-     header("Location: map-hostel.php");
-         }else{
-		 
+    $_SESSION['username'] = $username;
+			echo var_dump($username);
+
+	// Redirect user to index.php
+    header("Location: map-hostel.php");
+        }else{
+	
  	echo "<div class='form'>
 	<h3>Username/password is incorrect.</h3>
 	<br/>Click here to <a href='login.php'>Login</a></div>";
- }
-}else{
-	?>
-	<div class="form">
-	<h1>Log In</h1>
-	<form action="" method="post" name="login">
-	<input type="text" name="username" placeholder="Username" required />
-	<input type="password" name="password" placeholder="Password" required />
-	<input name="submit" type="submit" value="Login" />
-	</form>
-	<p>Not registered yet? <a href='registration.php'>Register Here</a></p>
-	</div>
-	<?php } ?>
+		}
+	}
+
+?>
 
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
@@ -83,19 +103,19 @@
 				<h3>Sign In</h3>
 			</div>
 			<div class="card-body">
-				<form>
+				<form method="POST">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input name="username" type="text" class="form-control" placeholder="username">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input name="password" type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
@@ -107,7 +127,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
+					Don't have an account?<a href="cadastro.php">Sign Up</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>
