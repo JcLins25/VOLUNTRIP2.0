@@ -55,10 +55,9 @@
             </nav><!-- .navbar -->
     </div>
 </div>
-            
-</header>
-        
-   
+
+<header> 
+
   <div class="header-content">
       <div class=Frase>
         <strong>Seja bem vindo</strong>
@@ -68,31 +67,20 @@
             sua experiência de voluntário
         </p>
      </div>
-    <div class= "search">
-      <form >
-         <input id= "search_txt" type="text">
-         <button id= "search_btn" type="button">Pesquisar</button>
-      </form>
-    </div>
   </div>
 
-<div id="mapid" class="animate-appear"></div>
+    <div id="mapid" class="animate-appear"></div>
 
-
-    <div class="hostel">
-      
-        <span hidden
-          data-id="1"
-          data-name="Hostel Jampa"
-          data-lat="-7.10713"
-          data-lng="-34.82787"
-        ></span>
-      
-      
+    <div class= "search">
+      <form >
+         <input id= "search_txt" type="text" placeholder="Endereço Completo">
+         <button class="btn" id= "search_btn" type="button">Pesquisar</button>
+      </form>
     </div>
+</header>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 

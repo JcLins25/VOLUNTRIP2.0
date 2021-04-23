@@ -79,10 +79,8 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
 </head>
 
 <body>
-
-<div id="page-hostel">
-
-    <div id="container">
+  <div id="page-hostel"> 
+  <div id="container">
                 <header class="page-header">
                 <div class="container d-flex justify-content-between align-items-center">
 				<div id="logo">
@@ -98,9 +96,8 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
             <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
     </div>
-</div>
 
-        </header>
+    </div>
                 
         <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
             <div class="wrapper wrapper--w680">
@@ -113,39 +110,39 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
                         <form method="POST" enctype="multipart/form-data">
                             <div class="row row-space">
                                 <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">Nome do Hostel</label>
-                                        <input class="input--style-4" type="text" name="hostelname">
+                                    <div class="form-group">
+                                        <label class="form-label">Nome do Hostel</label>
+                                        <input class="form-control input--style-4" type="text" name="hostelname">
                                     </div>
                                 </div>
                                 <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">CNPJ</label>
-                                        <input class="input--style-4" type="text" name="cnpj">
+                                    <div class="form-group">
+                                        <label class="form-label">CNPJ</label>
+                                        <input class="form-control input--style-4" type="text" name="cnpj">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row row-space">
                                 <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">E-mail</label>
-                                        <input class="input--style-4" type="email" name="email">
+                                    <div class="form-group">
+                                        <label class="form-label">E-mail</label>
+                                        <input class="form-control input--style-4" type="email" name="email">
                                     </div>
                                 </div>
                                 <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">Endereço Completo</label>
-                                        <input class="input--style-4" type="text" name="endereco">
+                                    <div class="form-group">
+                                        <label class="form-label">Endereço Completo</label>
+                                        <input class="form-control input--style-4" type="text" name="endereco">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row row-space">
                                 <div class="col-11">
-                                    <div class="input-group">
-                                        <label for="bio">FALE SOBRE O HOSTEL</label>
-                                        <textarea class="input--style-4" name="history" id="history" required></textarea>
+                                    <div class="form-group">
+                                        <label class="form-label" for="bio">FALE SOBRE O HOSTEL</label>
+                                        <textarea class="form-control input--style-4" name="history" id="history" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +152,7 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
                                  <div class="form-group">
                                     <div class="field" align="left">
                                         <h3>Fotos Hostel</h3>
-                                        <input type="file" id="files" name="files[]" multiple/>
+                                        <input class="form-control-file" type="file" id="files" name="files[]" multiple/>
                                         <div id="files-preview"></div>
                                     </div> 
                                   </div>
@@ -163,19 +160,23 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
                             </div>
                                 
                             <div class="row">
-                                  <div class="col-12">
-                                    <input type="submit" value="Enviar" name="envia" />
+                                  <div class="col-4">
+                                  <div class="form-group">
+                                    <input class="btn" id="button" type="submit" value="Enviar" name="envia" />
                                   </div>
+                                 </div>
                             </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </div>
+
+  </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script src="./javascript/files-preview.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="./assets/js/files-preview.js"></script>
 </body>
 
 

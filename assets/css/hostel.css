@@ -4,7 +4,7 @@ body {
 }
 
 #page-hostel {
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-image: url('https://viagemeturismo.abril.com.br/wp-content/uploads/2016/12/mochileiro-thinkstock-e1501713848800.jpg?quality=70&strip=info&resize=680,453');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -31,23 +31,6 @@ body #container {
 
 .top-bar-container {
     margin: 0rem;
-}
-
-.redes-sociais {
-    position: absolute;
-    right: 0;
-}
-
-.redes-sociais ul li{
-    display: flex;
-    float: right;
-    margin: auto;
-    padding: 10px;
-    
-}
-
-.redes-sociais img {
-    width: 2rem;
 }
 
 .logotipo {
@@ -118,33 +101,6 @@ body #container {
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
   }
-  
-  .input--style-4::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: #666;
-  }
-  
-  .input--style-4:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
-    color: #666;
-    opacity: 1;
-  }
-  
-  .input--style-4::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: #666;
-    opacity: 1;
-  }
-  
-  .input--style-4:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: #666;
-  }
-  
-  .input--style-4:-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: #666;
-  }
 
   .p-t-30 {
     padding-top: 30px;
@@ -162,50 +118,6 @@ body #container {
     -ms-user-select: none;
     user-select: none;
   }
-
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem 1.6rem;
-}
-
-.buttons-container a { 
-    width: 8rem;
-    height: 3rem;
-
-    border-radius: .8rem;
-    margin-right: 1.6rem;
-
-    font: 200 1.2rem Archivo;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-
-    transition: background 0.2s;
-
-    color: black ;
-}
-
-
-.buttons-container a.Voltar {
-    background: rgb(243, 159, 138);
-}
-
-.buttons-container a.Voltar:hover {
-    background: rgb(238, 62, 49);
-}
-
-.buttons-container a.Salvar {
-    background:  rgb(90, 73, 240);
-    margin-right: 0;
-}
-
-.buttons-container a.Salvar:hover {
-    background: rgb(119, 238, 69);
-}
 
 input[type="file"] {
   display: block;

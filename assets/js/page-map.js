@@ -3,27 +3,33 @@ $(document).ready(function(){
     $('#search_btn').click(function(){
         var searchtxt = $('#search_txt').val();
         $.ajax({
-            url: 'api-map.php',
+            url: 'api-map.php?endereco='+ searchtxt,
             type: 'get',
             dataType: 'JSON',
-            data: {'endereco': searchtxt},
+            // data: {"endereco": searchtxt},
             success: function(response){
+                console.log (response);
+
                 var len = response.length;
+
+                if(len>0){
+                    map.setView([response[0].lat,response[0].lng], 15);
+                } else {
+                    alert ("Não Existe Hostels Cadastrados")
+                };
+                
                 for(var i=0; i<len; i++){
                     var id = response[i].id;
                     var hostelname= response[i].hostelname;
                     var lat = response[i].lat;
                     var lng = response[i].lng;
-    
-                    var tr_str = "<tr>" +
-                        "<td align='center'>" + (i+1) + "</td>" +
-                        "<td align='center'>" + hostelname + "</td>" +
-                        "<td align='center'>" + lat + "</td>" +
-                        "<td align='center'>" + lng + "</td>" +
-                        "</tr>";
-                    console.log (tr_str);
+                    addMarker({id, hostelname, lat, lng})
+
                 }
     
+            },
+            error: function (err){
+                console.log (err);
             }
         });
     });
@@ -133,7 +139,7 @@ function addMarker({id, name, lat, lng}) {
         className: 'map-popup',
         minWidth: 240,
         minHeight: 240
-    }).setContent(`${name} <a href="./hostel.php?id=${id}"><img src="/images/arrow-white.svg" > </a>`)
+    }).setContent(`${name} <a href="./hostel.php?hostel=${id}"><img src=./assets/img/img2/logo/icon-house.svg" > </a>`)
 
 
     // create and add marker
@@ -143,15 +149,15 @@ function addMarker({id, name, lat, lng}) {
     .bindPopup(popup)
 }
 
-const hostelSpan = document.querySelectorAll('.hostel span')
+// const hostelSpan = document.querySelectorAll('.hostel span')
 
-hostelSpan.forEach( span => {
-    const hostel = {
-        id: span.dataset.id,
-        name: span.dataset.name,
-        lat: span.dataset.lat,
-        lng: span.dataset.lng
-    }
+// hostelSpan.forEach( span => {
+//     const hostel = {
+//         id: span.dataset.id,
+//         name: span.dataset.name,
+//         lat: span.dataset.lat,
+//         lng: span.dataset.lng
+//     }
 
-    addMarker(hostel)    
-})
+//     addMarker(hostel)    
+// })

@@ -97,77 +97,80 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
 
                             <div class="row row-space">
                                 <div class="col-5">
-                                    <div class="input-group">
+                                    <div class="form-group">
                                         <label class="label">Nome</label>
-                                        <input class="input--style-4" type="text" name="username">
+                                        <input class="form-control input--style-4 " type="text" name="username">
                                     </div>
                                 </div>
                                 <div class="col-5">
-                                    <div class="input-group">
+                                    <div class="form-group">
                                         <label class="label">CPF/PASSAPORT</label>
-                                        <input class="input--style-4" type="text" name="cpf">
+                                        <input class="form-control input--style-4" type="text" name="cpf">
                                     </div>
                                 </div>
                             </div>
                             <div class="row row-space">
                                 <div class="col-5">
-                                    <div class="input-group">
+                                    <div class="form-group">
+                                        <label class="label">E-mail</label>
+                                        <input class="form-control input--style-4"  type="email" name="email"/>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label class="label">Password</label>
+                                        <input class="form-control input--style-4" type="password" name="password"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space"> 
+                                <div class="col-5">
                                         <label class="label">Gender</label>
                                         <div class="p-t-30">
-                                            <label class="radio-container m-r-45">Masculino
-                                                <input type="radio" checked="checked" name="gender" VALUE="Masc">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <label class="radio-container">Feminino
-                                                <input type="radio" name="gender" VALUE="Femin">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <label class="radio-container">Outros
-                                                <input type="radio" name="gender" VALUE="Outr">
-                                                <span class="checkmark"></span>
-                                            </label>
+                                            <div class="form-check form-check-inline">
+                                             <label class="form-check-label">Masculino</label>
+                                             <input class="form-check-input" type="radio" checked="checked" name="gender" VALUE="Masc"/>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                             <label class="form-check-label">Feminino</label>
+                                             <input class="form-check-input"  type="radio" name="gender" VALUE="Femin"/>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                             <label class="form-check-label">Outros</label>
+                                             <input class="form-check-input"  type="radio" name="gender" VALUE="Outr"/>
+                                            </div>
                                         </div>
+                                   
+                                </div>                            
+                                <div class="col-5" >
+                                 <label>VOCÊ É HOSTEL?</label>
+                                 <div class="p-t-30">
+                                    <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id= "Sim" name="idhostel" type= "radio" value="1"/>
+                                                <label class="form-check-label" for="Sim">Sim</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row row-space">
-                                <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">E-mail</label>
-                                        <input class="input--style-4" type="email" name="email">
+                                    <div class="form-check form-check-inline">
+                                            <input class="form-check-input" id= "Nao" name="idhostel" type= "radio" value="0"/>
+                                            <label class="form-check-label" for="Nao">Não</label>   
                                     </div>
+                                 </div>
                                 </div>
-                                <div class="col-5">
-                                    <div class="input-group">
-                                        <label class="label">Password</label>
-                                        <input class="input--style-4" type="password" name="password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row row-space">
-                                <div class="input-group">
-                                  <div class="col-10">
-                                    <div class="input-group">
-                                        <div class= "label-hostel"> 
-                                                <label>VOCÊ É HOSTEL?</label>
-                                                <input id= "Sim" name="idhostel" type= "radio" value="1"/>
-                                                <label for="Sim">Sim</label>
-                                                <input id= "Nao" name="idhostel" type= "radio" value="0"/>
-                                                <label for="Nao">Não</label>
-                                        </div>
-                                    </div>
-                                </div>
-                           </div>
                              <div class="row row-space">
-                                  <div class="input-group">
-                                    <div class="col-12">
+                                  <div class="col-6">
                                       <div class="form-group">
                                         <div class="field" align="left">
                                         <h3>Fotos Sua</h3>
-                                        <input type="file" name="image"/></br>
-                                        <input type="submit" value="Enviar" name="envia" />
-                                      </div>
+                                        <input class="form-control-file" id="files"type="file" name="image"/></br>
+                                        <div id="files-preview"></div>
                                     </div>
+                                  </div>
+                                
+                             </div>
+                             <div class="row row-space">
+                                  <div class="col-4">
+                                      <div class="form-group">
+                                        <input class="btn" type="submit" value="Enviar" name="envia" />
+                                      </div>
                                   </div>
                                 
                              </div>
@@ -180,7 +183,8 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<script src="./javascript/files-preview.js"></script>
+
+<script src="./assets/js/files-preview.js"></script>
 </body>
 
 

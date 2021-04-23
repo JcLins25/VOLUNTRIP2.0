@@ -1,5 +1,5 @@
 html,body{
-    background-image: url('//st.depositphotos.com/1016676/2253/i/450/depositphotos_22539889-stock-photo-hikers.jpg');
+    background-image: url('https://www.mochileiros.com/blog/wp-content/uploads/2013/03/336157-hiking.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -22,7 +22,7 @@ html,body{
     .social_icon span{
     font-size: 60px;
     margin-left: 10px;
-    color: #FFC312;
+    color: #36ee11;
     }
     
     .social_icon span:hover{
@@ -42,7 +42,7 @@ html,body{
     
     .input-group-prepend span{
     width: 50px;
-    background-color: #FFC312;
+    background-color: #36ee11;
     color: black;
     border:0 !important;
     }
@@ -67,7 +67,7 @@ html,body{
     
     .login_btn{
     color: black;
-    background-color: #FFC312;
+    background-color: #36ee11;
     width: 100px;
     }
     
@@ -308,4 +308,9 @@ html,body{
   
   .navbar-mobile .dropdown > .dropdown-active {
     display: block;
+  }
+
+  .login-btn {
+    padding: 2rem;
+    background-color: #36ee11;
   }

@@ -19,11 +19,13 @@
 
  $lat = ($obj['results'][0]["locations"][0]["latLng"]['lat']);
  $lng = ($obj['results'][0]["locations"][0]["latLng"]['lng']);
+     // echo strval ($lat) . " " . strval ($lng);
 
     $query = "SELECT *, (6378 * acos(cos(radians('".$lat."')) * cos(radians(Latitude)) * cos( radians(Longitude) - radians('".$lng."')) + sin(radians('".$lat."')) * 
            sin(radians(Latitude)))) 
-           AS distance 
-           FROM `Hostel` WHERE distance < 15 ORDER BY distance";
+           AS `distance` 
+           FROM `Hostel` WHERE (6378 * acos(cos(radians('".$lat."')) * cos(radians(Latitude)) * cos( radians(Longitude) - radians('".$lng."')) + sin(radians('".$lat."')) * 
+           sin(radians(Latitude)))) < 15 ORDER BY `distance`";
 
       $result = mysqli_query($con,$query);
 
@@ -40,10 +42,10 @@
     $return_arr[] = array("id" => $id,
                     "hostelname" => $hostelname,
                     "lat" => $lat,
-                    "lng" => $lng;
+                    "lng" => $lng);
 }
-
      // Encoding array in JSON format
      echo json_encode($return_arr);
+    
 }
 ?>
