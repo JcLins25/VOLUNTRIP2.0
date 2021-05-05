@@ -5,14 +5,14 @@
 	}
 	catch(Exception $e) {}
 // If form submitted, insert values into the database.
-if (isset($_REQUEST['hostelname'])){
+ if (isset($_REQUEST['hostelname'])){
         // removes backslashes
  $hostelname = stripslashes($_REQUEST['hostelname']);
         //escapes special characters in a string
  $hostelname = mysqli_real_escape_string($con,$hostelname);
  $cnpj = mysqli_real_escape_string($con,$_REQUEST['cnpj']);
  $email = mysqli_real_escape_string($con,'email');
- $endereco = mysqli_real_escape_string($con,$_REQUEST['endereco']);
+ $endereco = mysqli_real_escape_string($con,$_REQUEST['$Logradouro'].', '.$_REQUEST['$Numero'].', '.$_REQUEST['$Localidade'].', '.$_REQUEST['$UF'],);
  $history = mysqli_real_escape_string($con, 'history');
  $fotos = upload_multiples_fotos ($_FILES['files'], "fotohostel", "files");
  $ch = curl_init(); 
@@ -38,11 +38,11 @@ if (isset($_REQUEST['hostelname'])){
 //  $lng = $latlng->displayLatLng->lng;
 //  curl_close($ch);
     $query = "INSERT into `Hostel` (hostelname, cnpj, email, endereco, history, latitude, longitude, ativo)
-VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)";
+VALUES ('$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1)";
       $result = mysqli_query($con,$query);
 
         if($result){
-
+            
             $Id_hostel = mysqli_insert_id($con);
             foreach ($fotos as $foto){
                 $query2 = "INSERT INTO `hostel_img`(`Foto`, `Id_hostel`) VALUES ('$foto', '$Id_hostel')";
@@ -52,7 +52,12 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
       <h3>You are registered successfully.</h3>
       <br/>Click here to <a href='login.php'>Login</a></div>";
         }
-    }else{}
+    else{
+        echo "<div class='form'>
+      <h3>Erro.</h3><br/>".var_dump ($result)
+      ."</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -101,60 +106,90 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
                 
         <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
             <div class="wrapper wrapper--w680">
-          
-          
-          
-            <div class="card card-4">
+            <div class="card card-6">
                     <div class="card-body">
                         <h2 class="title">Insira seus dados</h2>
                         <form method="POST" enctype="multipart/form-data">
-                            <div class="row row-space">
-                                <div class="col-5">
-                                    <div class="form-group">
-                                        <label class="form-label">Nome do Hostel</label>
+                            <div class="form-row">
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-6">Nome do Hostel</label>
+                                        <div class="col-12">
                                         <input class="form-control input--style-4" type="text" name="hostelname">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="form-group">
-                                        <label class="form-label">CNPJ</label>
+                                 
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-6">CNPJ</label>
+                                        <div class="col-12">
                                         <input class="form-control input--style-4" type="text" name="cnpj">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-6">Email</label>
+                                        <div class="col-12">
+                                        <input class="form-control input--style-4" type="text" name="email">
+                                        </div>
+                                    </div>
+                               
+                            </div>
+    
+                        <div class="form-row">
+                           <div class="form-group col-sm-2">
+                                        <label class="col-8">Cep</label>
+                                        <div class="col-12">
+                                        <input id="search_txt" class="form-control input--style-4" type="text" name="cep"/>
+                                        <button type="button" id="search-cep">Pesquisar Cep</button>
+                                        </div>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                        <label class="col-8">Logradouro</label>
+                                        <div class="col-12">
+                                        <input id="logradouro_txt" class="form-control input--style-4" type="text" name="logradouro"/>
+                                        </div>
+                                </div>
+                                <div class="form-group col-sm-1">
+                                        <label class="col-12">N°</label>
+                                        <div class="col-12">
+                                        <input id="Numero_txt" class="form-control input--style-4" type="text" name="Numero"/>
+                                        </div>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                        <label class="col-4">Cidade</label>
+                                        <div class="col-12">
+                                        <input id="localidade_txt" class="form-control input--style-4" type="text" name="Localidade"/>
+                                        </div>
+                                </div>
+                                <div class="form-group col-sm-1">
+                                        <label class="col-12">UF</label>
+                                        <div class="col-12">
+                                        <input id="uf_txt" class="form-control input--style-4" type="text" name="uf"/>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="form-row">
+                                <div class="col-sm-11">
+                                    <div class="form-group col-sm-12">
+                                        <label class="col-12" for="bio">FALE SOBRE O HOSTEL</label>
+                                        <div class="col-12">
+                                        <textarea class=" col-12 form-control input--style-4" name="history" id="history" required></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row row-space">
-                                <div class="col-5">
-                                    <div class="form-group">
-                                        <label class="form-label">E-mail</label>
-                                        <input class="form-control input--style-4" type="email" name="email">
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="form-group">
-                                        <label class="form-label">Endereço Completo</label>
-                                        <input class="form-control input--style-4" type="text" name="endereco">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row row-space">
-                                <div class="col-11">
-                                    <div class="form-group">
-                                        <label class="form-label" for="bio">FALE SOBRE O HOSTEL</label>
-                                        <textarea class="form-control input--style-4" name="history" id="history" required></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row row-space">
-                              <div class="col-11">
-                                 <div class="form-group">
-                                    <div class="field" align="left">
+                            <div class="form-row">
+                              <div class="col-sm-11">
+                                 <div class="form-group col-sm-12">
+                                   <div class="col-12">
+                                     <div class="field" align="left">
                                         <h3>Fotos Hostel</h3>
                                         <input class="form-control-file" type="file" id="files" name="files[]" multiple/>
                                         <div id="files-preview"></div>
                                     </div> 
+                                   </div>
                                   </div>
                               </div>
                             </div>
@@ -174,9 +209,13 @@ VALUES ('$hostelname', $cnpj, '$email', '$endereco', '$history', $lat, $lng, 1)"
 
   </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
     <script src="./assets/js/files-preview.js"></script>
+    <script src="./assets/js/cep.js"></script>
 </body>
 
 

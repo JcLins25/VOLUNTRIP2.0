@@ -1,3 +1,27 @@
+
+<?php
+	try {
+	require(__DIR__. '/database/db.php');
+	}
+	catch(Exception $e) {}
+ 
+  $query = "SELECT * FROM `hostel_img` AS `Foto` ORDER BY RAND() LIMIT 3";
+
+  $result = mysqli_query($con,$query);
+  $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+ 
+  $query2 = "SELECT * FROM `Usuarios` AS `Foto` ORDER BY RAND() LIMIT 5";
+
+  $result2 = mysqli_query($con,$query2);
+  $images2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -148,27 +172,19 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Todos</li>
-              <li data-filter=".filter-app">Party Hostel</li>
-              <li data-filter=".filter-card">Relax Hostel</li>
-              <li data-filter=".filter-web">work Hostels</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-           <img src="./assets/img/img2/ft-hostel/areacomun.jpeg" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="./assets/img/img2/ft-hostel/fotodohostel.jpeg" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="./assets/img/img2/ft-hostel/recepção.jpeg" class="img-fluid" alt="">
-          </div>
-        </div>
+        <?php 
+                  foreach($images as $image ) {
+                  echo '<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img class="img-fluid" src="./fotohostel/'.$image["Foto"].'" alt="Foto do Hostel" title="">
+                    </div>';
+                  }
+        ?>
+      </div>
 
       </div>
     </section><!-- End Portfolio Section -->
@@ -181,61 +197,13 @@
           <p class="section-description">Veja aqui os voluntários que mais utilizam a platoforma.</p>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team-1.jpg" alt=""></div>
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="pic"><img src="assets/img/team-2.jpg" alt=""></div>
-              <h4>Sarah Jhinson</h4>
-              <span>Product Manager</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="assets/img/team-3.jpg" alt=""></div>
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="400">
-              <div class="pic"><img src="assets/img/team-4.jpg" alt=""></div>
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
+              <?php 
+                  foreach($images2 as $img2 ) {
+                   echo '<div class="col-lg-3 col-md-6"><div class="member" data-aos="fade-up"   data-aos-delay="100">
+                   <img class="pic" src="./'.$img2["Foto"].'" alt="Foto Voluntarios" title=""/>
+                   </div> </div>';
+                  }
+              ?>  
         </div>
 
       </div>

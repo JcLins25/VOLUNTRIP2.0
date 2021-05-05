@@ -45,7 +45,13 @@
                 <a href=""><img id="Logo-img" src="assets/img/img2/logo/Logo.png" alt=""/></a>
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!--<h1><a href="index.html">Regna</a></h1>-->
-                </div>
+        </div>
+
+        <div class=Frase>      
+         <p>
+             <strong>Seja bem vindo</strong>
+         </p>
+        </div>
 
             <nav id="navbar" class="navbar">
             <ul>
@@ -56,28 +62,17 @@
     </div>
 </div>
 
-<header> 
 
-  <div class="header-content">
-      <div class=Frase>
-        <strong>Seja bem vindo</strong>
-        <p>
-            Escolha, visualize e aplique para
-                
-            sua experiência de voluntário
-        </p>
-     </div>
-  </div>
+<div id="mapid" class="animate-appear"></div>
 
-    <div id="mapid" class="animate-appear"></div>
-
+   
     <div class= "search">
-      <form >
-         <input id= "search_txt" type="text" placeholder="Endereço Completo">
+      <form class="form-inline">
+         <input class="form-control" id= "search_txt" type="text" placeholder="Endereço Completo">
          <button class="btn" id= "search_btn" type="button">Pesquisar</button>
       </form>
     </div>
-</header>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 crossorigin="anonymous"></script>

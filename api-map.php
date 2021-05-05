@@ -20,6 +20,7 @@
  $lat = ($obj['results'][0]["locations"][0]["latLng"]['lat']);
  $lng = ($obj['results'][0]["locations"][0]["latLng"]['lng']);
      // echo strval ($lat) . " " . strval ($lng);
+     // var_dump  ($lat.$lng);
 
     $query = "SELECT *, (6378 * acos(cos(radians('".$lat."')) * cos(radians(Latitude)) * cos( radians(Longitude) - radians('".$lng."')) + sin(radians('".$lat."')) * 
            sin(radians(Latitude)))) 
@@ -28,6 +29,7 @@
            sin(radians(Latitude)))) < 15 ORDER BY `distance`";
 
       $result = mysqli_query($con,$query);
+     //  var_dump ($result);
 
         if($result){
     

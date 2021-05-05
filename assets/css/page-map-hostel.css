@@ -1,4 +1,4 @@
-body {
+/* body { 
     overflow: auto;
 
     background-image: url('https://www.triptri.com.br/blog/wp-content/uploads/2018/09/adventure-1850912_1920.jpg');
@@ -6,10 +6,10 @@ body {
     background-size: 100%;
     background-position: 90%;
     background-attachment: fixed;
-}
+} */
 
 
-body #container {
+/* body #container {
     font-weight: 500;
     color: rgb(8, 8, 8);
     height: 100%;
@@ -18,28 +18,15 @@ body #container {
 
     margin-top: 1rem;
     
+} */
+
+
+
+.page-header {
+    background-color: #3e413d;
+    width: 100%;
 }
 
-.top-bar-container {
-    margin: 0rem;
-}
-
-.redes-sociais {
-    position: absolute;
-    right: 0;
-}
-
-.redes-sociais ul li{
-    display: flex;
-    float: right;
-    margin: auto;
-    padding: 10px;
-    
-}
-
-.redes-sociais img {
-    width: 2rem;
-}
 
 .logotipo {
     display: block;
@@ -50,38 +37,16 @@ body #container {
     height: auto;
 }
 
-.header-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    align-items: center;
-
-    margin: auto;
-    float: left;
-
-    width: 20%;
-  }
-
-  .search {
+.search {
     
-    display: table-caption;
-    margin: 0.5rem;
-    margin-top: -4.9rem;
+  background-color: transparent;
+  position: absolute;
+  z-index: 400;
 
-    border-radius: .8rem;
-    margin-right: 3.2rem;
+  top: 6.5rem;
+  left: 4%;
 
-    font: 200 1.2rem Archivo;
-
-    align-items:center;
-    justify-content: center;
-
-    text-decoration: none;
-
-    transition: background 0.2s;
-
-    color: black ;
+  width: 40%;
 }
 
 /* map */
@@ -92,12 +57,12 @@ body #container {
   border-radius: 2rem;
 }
 
-#mapid {
-  width: 80%;
-  height: 35rem;
-
-  margin-top: -10px;
-}
+ #mapid {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height:500px;
+} 
 
 .map-container footer {
   padding: 2rem 0;
@@ -116,34 +81,36 @@ body #container {
   border-radius: 2rem;
 }
 
-.Frase p {
-  margin-top: 3rem;
-  justify-content: center;
+.Frase {
+  margin-top: 0.8rem;
+  width: 21%;
+  height: 1.8rem;
+  background-color: transparent;
 
-  width: 2rem;
-  height: 8rem;
+  z-index: 400;
+  
+}
+
+.Frase p {
 
   border-radius: .8rem;
-  margin-right: 1.6rem;
+  margin-right: 1.4rem;
 
-  font: 600 1.8rem Archivo;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
   
   color: #36ee11;
 
 }
 
-.Frase {
-
-  margin-top: 4rem;
-  height: 8rem;
-
-  font: 600 1.8rem Archivo;
-  
-  color: #36ee11
-}
-
 .btn {
   background-color: #36ee11;
-  border-color: #36ee11;
-  color: #fff;
+  border-color: #3e413d;
+  color: #fff; 
+}
+
+.form-inline .form-control  {
+  height: 2.6rem;
+  width: 70%;
 }

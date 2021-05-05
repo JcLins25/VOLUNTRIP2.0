@@ -4,7 +4,7 @@ body {
   }
   
   #page-hostel {
-    background-image: url('https://i0.wp.com/agentenoturismo.com.br/wp-content/uploads/2015/11/traveler.jpg');
+    background-image: url('https://freesider.com.br/wp-content/uploads/2017/04/sunset-2173918_1920-1024x768.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -71,7 +71,7 @@ body {
   .page-wrapper {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 95%;
   }
   
   input, textarea {
@@ -95,13 +95,14 @@ body {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     font-size: 16px;
     color: rgb(8, 8, 8);
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    width: 100%;
   }
   
   .p-t-30 {
@@ -300,3 +301,4 @@ body {
   border-color: #36ee11;
   color: #fff;
 }
+
