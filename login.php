@@ -1,3 +1,41 @@
+<?php
+  session_start();
+	try {
+	require(__DIR__. '/database/db.php');
+	}
+	catch(Exception $e) {
+		
+	}
+	// If form submitted, insert values into the database.
+	if (isset($_POST['username'])){
+        // removes backslashes
+ 	$username = stripslashes($_REQUEST['username']);
+	// escapes special characters in a string
+ 	$username = mysqli_real_escape_string($con,$username);
+ 	$password = stripslashes($_REQUEST['password']);
+ 	$password = mysqli_real_escape_string($con,$password);
+ 	// Checking is user existing in the database or not
+  $query = "SELECT * FROM `Usuarios` WHERE email='$username'and senha='".md5($password)."'";
+  // var_dump ($query);
+ 	$result = mysqli_query($con,$query) or die(mysqli_error(0));
+	$rows = mysqli_fetch_array($result);
+  // var_dump ($rows);
+        if(sizeof($rows)>0){
+    $_SESSION['username'] = $username;
+    $_SESSION['Id'] = $rows['Id'];
+
+	// Redirect user to index.php
+    header("Location: home.php");
+        }else{
+	
+ 	echo "<div class='form'>
+	<h3>Username/password is incorrect.</h3>
+	<br/>Click here to <a href='login.php'>Login</a></div>";
+		}
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,41 +97,6 @@
 </head>
 
 <body>
-
- <?php
-	try {
-	require(__DIR__. '/database/db.php');
-	}
-	catch(Exception $e) {
-		
-	}
-	session_start();
-	// If form submitted, insert values into the database.
-	if (isset($_POST['username'])){
-        // removes backslashes
- 	$username = stripslashes($_REQUEST['username']);
-	// escapes special characters in a string
- 	$username = mysqli_real_escape_string($con,$username);
- 	$password = stripslashes($_REQUEST['password']);
- 	$password = mysqli_real_escape_string($con,$password);
- 	// Checking is user existing in the database or not
-        $query = "SELECT * FROM `Usuarios` WHERE email='$username'and senha='".md5($password)."'";
- 	$result = mysqli_query($con,$query) or die(mysqli_error(0));
-	$rows = mysqli_num_rows($result);
-        if($rows==1){
-    $_SESSION['username'] = $username;
-
-	// Redirect user to index.php
-    header("Location: map-hostel.php");
-        }else{
-	
- 	echo "<div class='form'>
-	<h3>Username/password is incorrect.</h3>
-	<br/>Click here to <a href='login.php'>Login</a></div>";
-		}
-	}
-
-?>
 
 <div class="container">
 	<div class="d-flex justify-content-center h-100">

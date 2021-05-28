@@ -25,10 +25,12 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
         $result = mysqli_query($con,$query);
         if($result){
                 echo 'entra2'; 
-            if ($e_hostel == 1) {      
+            if ($e_hostel == 1) { 
+
         $host  = $_SERVER['HTTP_HOST'];
         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = "cadastro-hostel.php";
+        $Id = $con->insert_id;
+        $extra = "cadastro-hostel.php?id=".$Id;
         header("Location: http://$host$uri/$extra");
         exit;
             }
@@ -99,7 +101,7 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label class="label">Nome</label>
-                                        <input class="form-control input--style-4 " type="text" name="username">
+                                        <input class="form-control input--style-4" type="text" name="username">
                                     </div>
                                 </div>
                                 <div class="col-5">
@@ -143,7 +145,7 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
                                    
                                 </div>                            
                                 <div class="col-5" >
-                                 <label>VOCÊ É HOSTEL?</label>
+                                 <label>VOCÊ É HOSTELEIRO?</label>
                                  <div class="p-t-30">
                                     <div class="form-check form-check-inline">
                                                 <input class="form-check-input" id= "Sim" name="idhostel" type= "radio" value="1"/>
@@ -155,9 +157,10 @@ VALUES ('$username', $cpfBd, '".md5($password)."', '$email', '$gender', '$foto',
                                     </div>
                                  </div>
                                 </div>
+                            </div>
                              <div class="row row-space">
                                   <div class="col-6">
-                                      <div class="form-group">
+                                    <div class="form-group">
                                         <div class="field" align="left">
                                         <h3>Fotos Sua</h3>
                                         <input class="form-control-file" id="files"type="file" name="image"/></br>

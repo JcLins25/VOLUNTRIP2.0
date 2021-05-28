@@ -4,15 +4,23 @@
     require(__DIR__. '/funcoes/upload-fotos.php');
 	}
 	catch(Exception $e) {}
+    if($_SERVER['REQUEST_METHOD']=='GET'){
+    if (isset($_GET['id'])){
+        
+    $id = mysqli_real_escape_string($con,$_GET['id']);
+    }
+}
 // If form submitted, insert values into the database.
  if (isset($_REQUEST['hostelname'])){
         // removes backslashes
+ $User_ID =  mysqli_real_escape_string($con,$_REQUEST['id']);
  $hostelname = stripslashes($_REQUEST['hostelname']);
         //escapes special characters in a string
  $hostelname = mysqli_real_escape_string($con,$hostelname);
  $cnpj = mysqli_real_escape_string($con,$_REQUEST['cnpj']);
  $email = mysqli_real_escape_string($con,'email');
- $endereco = mysqli_real_escape_string($con,$_REQUEST['$Logradouro'].', '.$_REQUEST['$Numero'].', '.$_REQUEST['$Localidade'].', '.$_REQUEST['$UF'],);
+ var_dump ($_REQUEST);
+ $endereco = mysqli_real_escape_string($con,$_REQUEST['Logradouro'].', '.$_REQUEST['Numero'].', '.$_REQUEST['Localidade'].', '.$_REQUEST['UF'],);
  $history = mysqli_real_escape_string($con, 'history');
  $fotos = upload_multiples_fotos ($_FILES['files'], "fotohostel", "files");
  $ch = curl_init(); 
@@ -37,8 +45,8 @@
 //  $lat = $latlng->displayLatLng->lat;
 //  $lng = $latlng->displayLatLng->lng;
 //  curl_close($ch);
-    $query = "INSERT into `Hostel` (hostelname, cnpj, email, endereco, history, latitude, longitude, ativo)
-VALUES ('$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1)";
+    $query = "INSERT into `Hostel` (User_ID, hostelname, cnpj, email, endereco, history, latitude, longitude, ativo)
+VALUES ('$User_ID', '$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1)";
       $result = mysqli_query($con,$query);
 
         if($result){
@@ -111,6 +119,7 @@ VALUES ('$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1
                         <h2 class="title">Insira seus dados</h2>
                         <form method="POST" enctype="multipart/form-data">
                             <div class="form-row">
+                            <input type="hidden" id= "input-id" name= "id" value="<?php echo $id?>"/>
                                     <div class="form-group col-sm-4">
                                         <label class="col-6">Nome do Hostel</label>
                                         <div class="col-12">
@@ -145,7 +154,7 @@ VALUES ('$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1
                                 <div class="form-group col-sm-4">
                                         <label class="col-8">Logradouro</label>
                                         <div class="col-12">
-                                        <input id="logradouro_txt" class="form-control input--style-4" type="text" name="logradouro"/>
+                                        <input id="logradouro_txt" class="form-control input--style-4" type="text" name="Logradouro"/>
                                         </div>
                                 </div>
                                 <div class="form-group col-sm-1">
@@ -163,7 +172,7 @@ VALUES ('$hostelname', '$cnpj', '$email', '$endereco', '$history', $lat, $lng, 1
                                 <div class="form-group col-sm-1">
                                         <label class="col-12">UF</label>
                                         <div class="col-12">
-                                        <input id="uf_txt" class="form-control input--style-4" type="text" name="uf"/>
+                                        <input id="uf_txt" class="form-control input--style-4" type="text" name="UF"/>
                                         </div>
                                 </div>
                             </div>

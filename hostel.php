@@ -58,9 +58,7 @@
 
 <body>
 
-<div id="page-hostel">
-
-  
+<div id="page-map-hostel">
     <div id="container">
                 <header class="page-header">
                 <div class="container d-flex justify-content-between align-items-center">
@@ -68,7 +66,13 @@
                 <a href=""><img id="Logo-img" src="assets/img/img2/logo/Logo.png" alt=""/></a>
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!--<h1><a href="index.html">Regna</a></h1>-->
-                </div>
+        </div>
+
+        <div class=Frase>      
+         <p>
+             <strong>Seja bem vindo</strong>
+         </p>
+        </div>
 
             <nav id="navbar" class="navbar">
             <ul>
@@ -77,12 +81,13 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
     </div>
+</div>
 
-</header>
 
+<div id="page-hostel">
     <div class="images">
             <div class="col-lg-12">
-              <div id="myCarouselArticle" class="carousel slide" data-ride="carousel">
+              <div id="image" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                 <?php 
                   foreach($return_arr as $img ) {
@@ -91,22 +96,12 @@
                     </div>';
                   }
                 ?>
-                  
-                  <!-- <div class="carousel-item">
-                    <img class="img-fluid" src="./img/fotos hostel/areacomun.jpeg" alt="Area Comum" title="">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="img-fluid" src="./img/fotos hostel/recepção.jpeg" alt="Recepção" title="">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="img-fluid" src="./img/fotos hostel/quartos.jpeg" alt="Quartos" title="">
-                  </div> -->
                 </div>
-                <a class="carousel-control-prev" href="#myCarouselArticle" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#image" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#myCarouselArticle" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#image" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
@@ -123,7 +118,7 @@
       </p>
     </div>
         
-        <ul class="aplication">
+   <ul class="aplication">
             
             <li>
 
@@ -140,7 +135,8 @@
         </ul>
 </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 

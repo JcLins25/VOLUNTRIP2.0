@@ -4,7 +4,7 @@
  $cep = stripslashes($_REQUEST['cep']);
 
  $ch = curl_init(); 
- $url = "https://viacep.com.br/ws/" .urlencode($cep) . "/json/";
+ $url = "https://viacep.com.br/ws/" .urlencode($cep) . "/json";
 
  curl_setopt($ch, CURLOPT_URL, $url);
  curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
